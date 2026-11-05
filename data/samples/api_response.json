@@ -1,0 +1,32 @@
+{
+  "request_id": "req_8f3a2c91d4e7",
+  "status": "ok",
+  "generated_at": "2025-09-02T07:15:42Z",
+  "pagination": {"page": 1, "per_page": 50, "total": 1243, "next_cursor": "eyJvZmZzZXQiOjUwfQ=="},
+  "summary": {
+    "period": {"from": "2025-08-01", "to": "2025-08-31"},
+    "total_orders": 1243,
+    "total_revenue_usd": 187432.55,
+    "refund_rate": 0.021,
+    "avg_order_value_usd": 150.79,
+    "top_region": "EU",
+    "sla_breaches": 3
+  },
+  "orders": [
+    {"id": "ord_10001", "created_at": "2025-08-01T08:12:03Z", "customer": {"id": "cus_551", "name": "Elena Petrova", "email": "elena.petrova@example.com", "region": "EU", "tier": "gold"}, "items": [{"sku": "WIDGET-PRO", "qty": 2, "unit_price_usd": 89.0}, {"sku": "CABLE-USB-C", "qty": 1, "unit_price_usd": 12.5}], "total_usd": 190.5, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "stripe", "last4": "4242", "captured": true}, "shipping": {"carrier": "DHL", "tracking": "JD014600003210456789", "delivered_at": "2025-08-04T14:02:00Z", "sla_met": true}},
+    {"id": "ord_10002", "created_at": "2025-08-01T09:45:17Z", "customer": {"id": "cus_892", "name": "Marcus Lee", "email": "marcus.lee@example.com", "region": "NA", "tier": "silver"}, "items": [{"sku": "WIDGET-BASIC", "qty": 1, "unit_price_usd": 49.0}], "total_usd": 49.0, "currency": "USD", "status": "refunded", "payment": {"method": "paypal", "provider": "paypal", "last4": null, "captured": true}, "shipping": {"carrier": "UPS", "tracking": "1Z999AA10123456784", "delivered_at": "2025-08-06T10:30:00Z", "sla_met": false}, "refund": {"amount_usd": 49.0, "reason": "damaged_in_transit", "processed_at": "2025-08-09T11:00:00Z"}},
+    {"id": "ord_10003", "created_at": "2025-08-01T11:03:55Z", "customer": {"id": "cus_117", "name": "Aiko Tanaka", "email": "aiko.tanaka@example.com", "region": "APAC", "tier": "gold"}, "items": [{"sku": "WIDGET-PRO", "qty": 5, "unit_price_usd": 85.0}, {"sku": "MOUNT-KIT", "qty": 5, "unit_price_usd": 19.99}], "total_usd": 524.95, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "adyen", "last4": "1881", "captured": true}, "shipping": {"carrier": "FedEx", "tracking": "449044304137821", "delivered_at": "2025-08-07T09:12:00Z", "sla_met": true}},
+    {"id": "ord_10004", "created_at": "2025-08-02T06:20:41Z", "customer": {"id": "cus_303", "name": "Tomás Álvarez", "email": "tomas.alvarez@example.com", "region": "LATAM", "tier": "bronze"}, "items": [{"sku": "CABLE-USB-C", "qty": 3, "unit_price_usd": 12.5}], "total_usd": 37.5, "currency": "USD", "status": "shipped", "payment": {"method": "card", "provider": "stripe", "last4": "0005", "captured": true}, "shipping": {"carrier": "DHL", "tracking": "JD014600003210456790", "delivered_at": null, "sla_met": null}},
+    {"id": "ord_10005", "created_at": "2025-08-02T13:58:09Z", "customer": {"id": "cus_551", "name": "Elena Petrova", "email": "elena.petrova@example.com", "region": "EU", "tier": "gold"}, "items": [{"sku": "WIDGET-PRO", "qty": 1, "unit_price_usd": 89.0}], "total_usd": 89.0, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "stripe", "last4": "4242", "captured": true}, "shipping": {"carrier": "DHL", "tracking": "JD014600003210456791", "delivered_at": "2025-08-05T16:40:00Z", "sla_met": true}},
+    {"id": "ord_10006", "created_at": "2025-08-03T02:11:30Z", "customer": {"id": "cus_777", "name": "Grace Mbeki", "email": "grace.mbeki@example.com", "region": "EMEA", "tier": "silver"}, "items": [{"sku": "WIDGET-BASIC", "qty": 2, "unit_price_usd": 49.0}, {"sku": "MOUNT-KIT", "qty": 2, "unit_price_usd": 19.99}], "total_usd": 137.98, "currency": "USD", "status": "cancelled", "payment": {"method": "card", "provider": "adyen", "last4": "9013", "captured": false}, "shipping": null},
+    {"id": "ord_10007", "created_at": "2025-08-03T15:34:12Z", "customer": {"id": "cus_204", "name": "Liam O'Connor", "email": "liam.oconnor@example.com", "region": "EU", "tier": "gold"}, "items": [{"sku": "WIDGET-PRO", "qty": 3, "unit_price_usd": 89.0}], "total_usd": 267.0, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "stripe", "last4": "3220", "captured": true}, "shipping": {"carrier": "DHL", "tracking": "JD014600003210456792", "delivered_at": "2025-08-12T08:00:00Z", "sla_met": false}},
+    {"id": "ord_10008", "created_at": "2025-08-04T10:00:00Z", "customer": {"id": "cus_418", "name": "Sven Berg", "email": "sven.berg@example.com", "region": "EU", "tier": "bronze"}, "items": [{"sku": "CABLE-USB-C", "qty": 10, "unit_price_usd": 11.0}], "total_usd": 110.0, "currency": "USD", "status": "delivered", "payment": {"method": "invoice", "provider": "internal", "last4": null, "captured": true}, "shipping": {"carrier": "PostNord", "tracking": "RR123456789SE", "delivered_at": "2025-08-08T12:00:00Z", "sla_met": true}},
+    {"id": "ord_10009", "created_at": "2025-08-04T18:47:26Z", "customer": {"id": "cus_990", "name": "Chloe Dubois", "email": "chloe.dubois@example.com", "region": "EU", "tier": "silver"}, "items": [{"sku": "WIDGET-BASIC", "qty": 1, "unit_price_usd": 49.0}, {"sku": "CABLE-USB-C", "qty": 2, "unit_price_usd": 12.5}], "total_usd": 74.0, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "stripe", "last4": "7781", "captured": true}, "shipping": {"carrier": "Colissimo", "tracking": "6A12345678901", "delivered_at": "2025-08-07T11:25:00Z", "sla_met": true}},
+    {"id": "ord_10010", "created_at": "2025-08-05T07:30:51Z", "customer": {"id": "cus_612", "name": "Noah Williams", "email": "noah.williams@example.com", "region": "NA", "tier": "gold"}, "items": [{"sku": "WIDGET-PRO", "qty": 10, "unit_price_usd": 80.0}], "total_usd": 800.0, "currency": "USD", "status": "delivered", "payment": {"method": "card", "provider": "stripe", "last4": "5100", "captured": true}, "shipping": {"carrier": "UPS", "tracking": "1Z999AA10123456785", "delivered_at": "2025-08-19T15:00:00Z", "sla_met": false}}
+  ],
+  "warnings": [
+    {"code": "RATE_LIMIT_NEAR", "message": "You have used 870 of 1000 requests this hour.", "severity": "low"},
+    {"code": "DEPRECATED_FIELD", "message": "The field 'payment.last4' will be removed on 2025-12-01. Use 'payment.card.last4' instead.", "severity": "medium"}
+  ],
+  "meta": {"api_version": "2024-11-15", "latency_ms": 184, "cache": "miss", "docs": "https://api.example.com/docs/orders"}
+}

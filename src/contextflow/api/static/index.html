@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ContextFlow</title>
+<style>
+  :root{--bg:#fff;--fg:#111;--muted:#666;--line:#ddd;--accent:#6d5dfc;--box:#f6f6f8}
+  [data-theme=dark]{--bg:#111;--fg:#eee;--muted:#999;--line:#333;--accent:#8b7dff;--box:#1a1a1f}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.5 system-ui,sans-serif}
+  .wrap{max-width:960px;margin:0 auto;padding:24px 16px}
+  header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+  h1{font-size:20px;margin:0}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+  label{display:flex;gap:6px;align-items:center;color:var(--muted);font-size:14px}
+  select,input[type=text]{padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--box);color:var(--fg);font:inherit}
+  input[type=text]{flex:1;min-width:200px}
+  textarea,.out{width:100%;min-height:260px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--box);color:var(--fg);font:14px/1.5 system-ui,sans-serif;resize:vertical}
+  .out{white-space:pre-wrap;overflow:auto}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:760px){.grid{grid-template-columns:1fr}}
+  button{padding:10px 20px;border:0;border-radius:999px;background:var(--accent);color:#fff;font:inherit;font-weight:600;cursor:pointer}
+  button:disabled{opacity:.6}
+  .stats{margin-top:12px;color:var(--muted);font-size:14px}
+  .stats b{color:var(--fg)}
+  .small{font-size:12px;color:var(--muted)}
+  .toggle{position:relative;width:36px;height:20px;background:var(--line);border-radius:10px;display:inline-block}
+  .toggle::after{content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .2s}
+  input:checked + .toggle{background:var(--accent)}
+  input:checked + .toggle::after{transform:translateX(16px)}
+  .hide{position:absolute;opacity:0;width:0;height:0}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>ContextFlow</h1>
+    <div class="row" style="margin:0">
+      <label title="Use the local llama.cpp model if one is installed"><input class="hide" type="checkbox" id="llm"><span class="toggle"></span>Local model</label>
+      <label><input class="hide" type="checkbox" id="dark"><span class="toggle"></span>Dark</label>
+    </div>
+  </header>
+
+  <div class="row">
+    <label>Mode
+      <select id="mode">
+        <option value="light">Light</option>
+        <option value="balanced" selected>Balanced</option>
+        <option value="aggressive">Aggressive</option>
+        <option value="prompt_ready">Prompt-ready</option>
+      </select>
+    </label>
+    <input type="text" id="goal" placeholder="Optional goal, e.g. what was decided?">
+    <select id="sample"><option value="">Load sample…</option></select>
+  </div>
+
+  <div class="grid">
+    <textarea id="input" placeholder="Paste long text here"></textarea>
+    <div class="out" id="output"></div>
+  </div>
+
+  <div class="row" style="margin-top:12px">
+    <button id="go">Compress</button>
+    <span class="small" id="status"></span>
+  </div>
+  <div class="stats" id="stats"></div>
+</div>
+
+<script>
+const $ = s => document.querySelector(s);
+const root = document.documentElement;
+// theme toggle
+if (localStorage.getItem('theme') === 'dark') { root.dataset.theme = 'dark'; $('#dark').checked = true; }
+$('#dark').onchange = e => { root.dataset.theme = e.target.checked ? 'dark' : ''; localStorage.setItem('theme', root.dataset.theme || 'light'); };
+// status + llm toggle
+fetch('/status').then(r => r.json()).then(s => {
+  $('#status').textContent = s.llm_available ? 'model ready: ' + s.model : 'no local model, classical mode';
+  $('#llm').disabled = !s.llm_available; $('#llm').checked = s.llm_available;
+}).catch(() => $('#status').textContent = 'API offline');
+// samples
+fetch('/samples').then(r => r.json()).then(list => list.forEach(s => { const o = document.createElement('option'); o.value = s.name; o.textContent = s.name; $('#sample').appendChild(o); }));
+$('#sample').onchange = async e => { if (!e.target.value) return; const j = await (await fetch('/samples/' + e.target.value)).json(); $('#input').value = j.text; };
+// compress
+$('#go').onclick = async () => {
+  const text = $('#input').value; if (!text.trim()) return;
+  $('#go').disabled = true; $('#output').textContent = 'Compressing…'; $('#stats').textContent = '';
+  try {
+    const r = await fetch('/compress', { method: 'POST', headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ text, mode: $('#mode').value, goal: $('#goal').value || null, use_llm: $('#llm').checked }) });
+    if (!r.ok) throw new Error((await r.json()).detail || r.statusText);
+    const j = await r.json(); const p = j.report;
+    $('#output').textContent = j.text;
+    $('#stats').innerHTML = `<b>${p.tokens_in}</b> → <b>${p.tokens_out}</b> tokens · saved <b>${p.saved_pct}%</b> · ${Math.round(p.latency_ms)} ms · would-have-cost $${p.would_have_cost_usd.toFixed(4)} → $${p.cost_after_usd.toFixed(4)} · ${p.backend} · ${p.sections.filter(s=>!s.kept).length} sections dropped`;
+  } catch (e) { $('#output').textContent = 'Error: ' + e.message; }
+  $('#go').disabled = false;
+};
+</script>
+</body>
+</html>

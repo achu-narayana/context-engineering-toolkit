@@ -1,0 +1,115 @@
+From: Nora Bell <nora.bell@harbourlight.example>
+To: Vendor Team <team@brightpath.example>
+Cc: Omar Haddad <omar.haddad@harbourlight.example>
+Date: Mon, 3 Mar 2025 09:14:00 +0000
+Subject: Renewal of BrightPath analytics licence
+
+Hi all,
+
+Hope you had a good weekend. I wanted to reach out about our BrightPath licence, which I believe expires on 30 April 2025. We currently have 250 seats on the Professional plan at $38 per seat per month, billed annually, so $114,000 per year.
+
+Two things from our side. First, we are only actively using about 180 of the 250 seats according to the usage report you sent in January, so we would like to reduce the seat count. Second, we have been asked by our finance team to get any renewal under $100,000 so it stays within Omar's approval limit rather than going to the board.
+
+Could you send over options by the end of next week?
+
+Thanks,
+Nora
+
+From: Jules Martin <jules.martin@brightpath.example>
+To: Nora Bell <nora.bell@harbourlight.example>
+Cc: Omar Haddad <omar.haddad@harbourlight.example>; Vendor Team <team@brightpath.example>
+Date: Wed, 5 Mar 2025 16:40:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Hi Nora,
+
+Thanks for getting in touch, and happy to help. Just to confirm, yes, the current term ends 30 April 2025.
+
+A couple of options:
+
+Option A: 180 seats on Professional at the current $38/seat/month. Annual total $82,080. This keeps everything as is, just fewer seats.
+
+Option B: 180 seats on the new Business plan at $45/seat/month, annual total $97,200. Business includes the SSO integration and the data export API that your team asked about in November, plus a 99.9% uptime SLA.
+
+Please note that our list price for Professional goes up to $42 on 1 April, so we would need a signed order form before then to hold the $38 rate.
+
+Also, the 180 figure is based on monthly active users. If you look at users who logged in at least once in the last 90 days it is closer to 205. You may want to leave a little headroom.
+
+Best,
+Jules
+
+From: Omar Haddad <omar.haddad@harbourlight.example>
+To: Nora Bell <nora.bell@harbourlight.example>
+Date: Thu, 6 Mar 2025 08:05:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Nora,
+
+Both options are under $100k so either works from an approval point of view. My preference is Option B because the SSO integration would let us remove the separate password reset process, which the helpdesk estimates costs them about 15 hours a month.
+
+However, I do not want to be locked in for more than 12 months. Can you ask whether they will do Business on a 12 month term rather than their usual 24?
+
+Also, 180 seats feels tight given Jules' 205 number. Ask for 200.
+
+Omar
+
+From: Nora Bell <nora.bell@harbourlight.example>
+To: Jules Martin <jules.martin@brightpath.example>
+Cc: Omar Haddad <omar.haddad@harbourlight.example>
+Date: Thu, 6 Mar 2025 10:22:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Hi Jules,
+
+Thanks, this is really helpful. We are leaning towards Option B, with two changes:
+
+1. 200 seats rather than 180.
+2. A 12 month term rather than 24.
+
+At $45 that would be $108,000 which puts us over our $100k limit, so we would need the per-seat price to come down to $41 or below to make it work. Is that possible?
+
+Also, can you confirm that the data export API is included at no extra cost and whether there are any rate limits on it?
+
+Thanks,
+Nora
+
+From: Jules Martin <jules.martin@brightpath.example>
+To: Nora Bell <nora.bell@harbourlight.example>
+Cc: Omar Haddad <omar.haddad@harbourlight.example>
+Date: Mon, 10 Mar 2025 14:55:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Hi Nora,
+
+I spoke to our pricing team. We can do Business at $41/seat/month for 200 seats on a 12 month term, so $98,400 per year, on the condition that the order form is signed by 28 March 2025. After that the price reverts to $45.
+
+The data export API is included in Business at no extra cost. The rate limit is 1,000 requests per hour per workspace, which can be raised on request.
+
+One thing I should flag: the SSO integration currently supports Okta and Azure AD. If you use something else, let me know so I can check with engineering.
+
+I have attached the draft order form. Let me know if you would like any changes.
+
+Best,
+Jules
+
+From: Nora Bell <nora.bell@harbourlight.example>
+To: Omar Haddad <omar.haddad@harbourlight.example>
+Date: Tue, 11 Mar 2025 09:30:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Omar,
+
+$98,400 for 200 Business seats, 12 months, signed by 28 March. We use Okta so SSO is fine. Are you happy for me to proceed? I'd like to get the form to legal by Friday 14 March so we have two weeks for review.
+
+One open question: do we want to ask for a 30 day termination clause in case the SSO rollout fails? Jules did not mention one.
+
+Nora
+
+From: Omar Haddad <omar.haddad@harbourlight.example>
+To: Nora Bell <nora.bell@harbourlight.example>
+Date: Tue, 11 Mar 2025 11:02:00 +0000
+Subject: RE: Renewal of BrightPath analytics licence
+
+Approved. Go ahead with Option B at $98,400, 200 seats, 12 months. Yes, ask for the termination clause, but don't let it delay signature past 28 March. Please copy legal@harbourlight.example when you send the form.
+
+Omar

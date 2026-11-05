@@ -1,0 +1,49 @@
+[09:02] Maya: morning all, quick sync on the checkout redesign launch. are we still targeting Thursday?
+[09:03] Tom: morning! I think so, but the payment form bug from yesterday is still open
+[09:03] Lena: which one? the Apple Pay sheet not closing?
+[09:04] Tom: yeah that one, ticket CHK-412. it only happens on iOS 17.4 and below as far as I can tell
+[09:05] Maya: how many users is that roughly?
+[09:06] Tom: about 6% of mobile checkout sessions last week, so not nothing
+[09:06] Lena: ok so we can't ship with that broken
+[09:07] Raj: I can take CHK-412 today, I touched that sheet logic last month
+[09:07] Tom: thanks Raj, I'll reassign it to you
+[09:08] Maya: great. what else is open?
+[09:09] Lena: the a/b test results came in. new flow converts at 3.8% vs 3.1% for the old one over 41k sessions
+[09:09] Raj: that's a big lift
+[09:10] Lena: it is, p value was 0.002 so it's solid. average order value is flat though, $64 vs $63
+[09:11] Maya: ok that's good enough for me, I'd say we launch to 100% not another ramp
+[09:12] Tom: agreed, the ramp would only delay by a week and we already have 41k sessions
+[09:12] Raj: fine by me as long as CHK-412 is fixed
+[09:13] Maya: decision: launch to 100% on Thursday 14th if CHK-412 is closed by Wednesday noon
+[09:13] Lena: 👍
+[09:14] Tom: I'll write that up in the launch doc
+[09:15] Lena: one more thing, legal wants the new terms checkbox to be unchecked by default in the EU. right now it's prechecked everywhere
+[09:16] Maya: ugh ok, is that a blocker?
+[09:16] Lena: for EU yes, they said it's a GDPR consent thing and they won't sign off otherwise
+[09:17] Raj: that's a small change, I can do it with the Apple Pay fix. just need the list of EU country codes, I'll use the standard 27
+[09:18] Maya: do it. also please include UK and Switzerland in that list, I remember legal asked for that last time
+[09:18] Raj: will do
+[09:19] Tom: what about the analytics events? we renamed checkout_step_2 to checkout_shipping and the dashboard is still looking for the old name
+[09:20] Lena: I can update the dashboard, it's just a rename in the Looker view
+[09:20] Tom: thanks
+[09:21] Maya: anything from support?
+[09:22] Lena: they asked for a one-pager on what changed so they're not surprised by tickets. I'll draft it, need it reviewed by Wednesday
+[09:22] Maya: I can review it
+[09:23] Raj: btw the staging env has been really slow since yesterday, like 20 second page loads
+[09:23] Tom: yeah I noticed, I think it's the new image CDN config, it's not caching. I'll look at it this afternoon
+[09:24] Maya: is that going to affect prod?
+[09:24] Tom: shouldn't, prod uses a different CDN zone, but I'll double check before Thursday
+[09:25] Maya: ok. so to summarise: Raj fixes CHK-412 and the EU checkbox, Lena does the dashboard rename and the support one-pager, Tom checks the CDN and writes the launch doc
+[09:25] Tom: yep
+[09:25] Raj: yep
+[09:26] Lena: yes. what's the rollback plan if something breaks Thursday?
+[09:27] Maya: feature flag checkout_v2, we flip it off, takes effect within a minute. Tom can you confirm the flag still works after the refactor?
+[09:27] Tom: good call, I'll test it on staging once it's fast again
+[09:28] Raj: also should we tell the partner team? their widget sits on the checkout page
+[09:29] Maya: yes, good point. I'll message Sofia today
+[09:30] Lena: and the launch time? last time we did 6am UTC and it was fine
+[09:30] Maya: same again, 6am UTC Thursday
+[09:31] Tom: one question I don't have an answer to: do we keep the old flow code around or delete it after launch?
+[09:31] Maya: let's leave that for next week, not a launch blocker
+[09:32] Raj: ok I'm going to get started on 412
+[09:32] Maya: thanks everyone, next check-in tomorrow same time

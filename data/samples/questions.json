@@ -1,0 +1,12 @@
+[
+  {"id": 1, "source": "document.md", "question": "What is the new programme deadline agreed by the steering committee?", "answer": "31 October 2025", "aliases": ["31 Oct 2025", "October 31, 2025", "31 October"]},
+  {"id": 2, "source": "document.md", "question": "How much does the Oracle licence cost per year?", "answer": "$640,000", "aliases": ["640,000", "640000", "640k"]},
+  {"id": 3, "source": "document.md", "question": "Who must send the Oracle cancellation notice, and by when?", "answer": "Daniel Okafor by 15 October 2025", "aliases": ["Daniel Okafor", "15 October"]},
+  {"id": 4, "source": "document.md", "question": "What was the mismatch rate of the payment reconciliation service?", "answer": "0.003%", "aliases": ["0.003"]},
+  {"id": 5, "source": "chat_thread.txt", "question": "What conversion rates did the A/B test show for the new and old checkout flows?", "answer": "3.8% vs 3.1%", "aliases": ["3.8", "3.1"]},
+  {"id": 6, "source": "chat_thread.txt", "question": "Which ticket must be closed before launch and who took it?", "answer": "CHK-412, Raj", "aliases": ["CHK-412", "Raj"]},
+  {"id": 7, "source": "chat_thread.txt", "question": "What is the rollback plan if the launch breaks?", "answer": "turn off the checkout_v2 feature flag", "aliases": ["checkout_v2", "feature flag"]},
+  {"id": 8, "source": "email_chain.txt", "question": "What final price, seat count and term were approved?", "answer": "$98,400 for 200 seats on a 12 month term", "aliases": ["98,400", "98400", "200 seats", "12 month"]},
+  {"id": 9, "source": "email_chain.txt", "question": "By what date must the order form be signed to keep the $41 price?", "answer": "28 March 2025", "aliases": ["28 March", "March 28"]},
+  {"id": 10, "source": "api_response.json", "question": "How many orders were there in total and what was the refund rate?", "answer": "1243 orders, refund rate 0.021", "aliases": ["1243", "1,243", "0.021", "2.1%"]}
+]
