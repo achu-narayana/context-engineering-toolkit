@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+venv/
+dist/
+build/
+*.egg-info/
+models/
+*.gguf
+data/memory.db
+data/undo.json
+config.toml
+.contextflow/
+bench/results/*.json
+.DS_Store
